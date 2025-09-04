@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://cm0ffbwy6lws3"]
+
+[ext_resource type="Texture2D" uid="uid://emenstfdff8" path="res://Idle.png" id="1_jsn62"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0vmvx"]
+radius = 26.5189
+
+[node name="CharacterBody2D2" type="CharacterBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(119.75, 35)
+scale = Vector2(1.30556, 1.26923)
+texture = ExtResource("1_jsn62")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(120.5, 36)
+shape = SubResource("CircleShape2D_0vmvx")
