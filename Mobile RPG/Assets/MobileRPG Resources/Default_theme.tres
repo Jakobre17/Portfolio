@@ -1,0 +1,36 @@
+[gd_resource type="Theme" load_steps=7 format=3 uid="uid://dtogixvqbqcqu"]
+
+[ext_resource type="FontVariation" uid="uid://c43oqpko3bh0e" path="res://Assets/MobileRPG Resources/DefaultFont.tres" id="1_c7h8g"]
+[ext_resource type="StyleBox" uid="uid://cnspfmjcv40sw" path="res://Assets/MobileRPG Resources/Button9Slice.tres" id="1_wtqkn"]
+[ext_resource type="StyleBox" uid="uid://c7x3yocknd12j" path="res://Assets/MobileRPG Resources/Button9SliceHover.tres" id="2_andq1"]
+[ext_resource type="StyleBox" uid="uid://4s1m16clbuj7" path="res://Assets/MobileRPG Resources/Button9SlicePressed.tres" id="3_8bes6"]
+[ext_resource type="StyleBox" uid="uid://8ljwecvm0ngk" path="res://Assets/MobileRPG Resources/Panel9Slice.tres" id="4_ustnm"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_k5y64"]
+
+[resource]
+default_font = ExtResource("1_c7h8g")
+default_font_size = 6
+Button/colors/font_color = Color(1, 1, 1, 1)
+Button/colors/font_disabled_color = Color(1, 1, 1, 0.501961)
+Button/colors/font_hover_color = Color(1, 1, 1, 1)
+Button/colors/font_pressed_color = Color(0, 0, 0, 1)
+Button/colors/icon_hover_color = Color(1, 1, 1, 1)
+Button/colors/icon_pressed_color = Color(1, 1, 1, 1)
+Button/styles/disabled = ExtResource("1_wtqkn")
+Button/styles/focus = SubResource("StyleBoxEmpty_k5y64")
+Button/styles/hover = ExtResource("2_andq1")
+Button/styles/normal = ExtResource("1_wtqkn")
+Button/styles/pressed = ExtResource("3_8bes6")
+LineEdit/styles/focus = ExtResource("4_ustnm")
+LineEdit/styles/normal = ExtResource("4_ustnm")
+LineEdit/styles/read_only = ExtResource("4_ustnm")
+OptionButton/styles/disabled = ExtResource("4_ustnm")
+OptionButton/styles/focus = ExtResource("4_ustnm")
+OptionButton/styles/hover = ExtResource("4_ustnm")
+OptionButton/styles/normal = ExtResource("4_ustnm")
+OptionButton/styles/pressed = ExtResource("4_ustnm")
+Panel/styles/panel = ExtResource("4_ustnm")
+TextEdit/styles/focus = ExtResource("4_ustnm")
+TextEdit/styles/normal = ExtResource("4_ustnm")
+TextEdit/styles/read_only = ExtResource("4_ustnm")

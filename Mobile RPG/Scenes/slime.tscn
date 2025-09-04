@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://c4s3668tp50qm"]
+
+[ext_resource type="PackedScene" uid="uid://xsvc5v0ydryd" path="res://Scenes/enemy.tscn" id="1_hdjlg"]
+[ext_resource type="Texture2D" uid="uid://dsat2veqkmf3r" path="res://Assets/MobileRPG Resources/Images/Slime.png" id="2_dd5po"]
+
+[node name="Slime" instance=ExtResource("1_hdjlg")]
+hp = 35
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_dd5po")
+
+[node name="HPLabel" parent="." index="1"]
+text = "35HP"
+
+[node name="HoverInfo" parent="." index="3"]
+offset_left = -22.0
+offset_top = -10.0
+offset_right = 20.0
+offset_bottom = 11.0
+description = "A green slime."

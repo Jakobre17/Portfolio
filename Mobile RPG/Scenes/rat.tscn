@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://b5d7gvdfv2r6n"]
+
+[ext_resource type="PackedScene" uid="uid://xsvc5v0ydryd" path="res://Scenes/enemy.tscn" id="1_4mppo"]
+
+[node name="Rat" instance=ExtResource("1_4mppo")]
+
+[node name="HoverInfo" parent="." index="3"]
+description = "Is that Master Spli.. No, no it's just a regular rat."

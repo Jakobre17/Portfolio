@@ -1,0 +1,7 @@
+[gd_resource type="FontVariation" load_steps=2 format=3 uid="uid://c43oqpko3bh0e"]
+
+[ext_resource type="FontFile" uid="uid://bw6dlarsickfa" path="res://Assets/MobileRPG Resources/PixelRPG.ttf" id="1_1f3so"]
+
+[resource]
+base_font = ExtResource("1_1f3so")
+spacing_bottom = -2

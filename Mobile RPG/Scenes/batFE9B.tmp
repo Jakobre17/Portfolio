@@ -1,0 +1,172 @@
+[gd_scene load_steps=13 format=3 uid="uid://c7rj07fdnrwmr"]
+
+[ext_resource type="Script" path="res://Scenes/battle.gd" id="1_6a33c"]
+[ext_resource type="Texture2D" uid="uid://t6x6b62dyfcu" path="res://Assets/MobileRPG Resources/Images/Dungeon.png" id="1_fj68l"]
+[ext_resource type="Script" path="res://Scenes/PlayerStats.gd" id="2_8jrqg"]
+[ext_resource type="Texture2D" uid="uid://biid7s04a3jqk" path="res://Assets/MobileRPG Resources/Images/Mobile RPG Mockup.png" id="3_8ixhm"]
+[ext_resource type="PackedScene" uid="uid://c4s3668tp50qm" path="res://Scenes/slime.tscn" id="4_pmpd3"]
+[ext_resource type="Script" path="res://Scenes/StatsPanel.gd" id="6_7j87k"]
+[ext_resource type="Theme" uid="uid://dtogixvqbqcqu" path="res://Assets/MobileRPG Resources/Default_theme.tres" id="6_gbb3k"]
+[ext_resource type="PackedScene" uid="uid://bsbmrck8sigp3" path="res://Scenes/sword_action_button.tscn" id="7_akt0q"]
+[ext_resource type="PackedScene" uid="uid://uay6rnk333a3" path="res://Scenes/heal_action_button.tscn" id="8_l05ml"]
+
+[sub_resource type="Animation" id="Animation_unqf8"]
+resource_name = "FadeToNewRoom"
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Fade:modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_0pi7d"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Fade:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_as8as"]
+_data = {
+"FadeToNewRoom": SubResource("Animation_unqf8"),
+"RESET": SubResource("Animation_0pi7d")
+}
+
+[node name="Battle" type="Node"]
+script = ExtResource("1_6a33c")
+
+[node name="PlayerStats" type="Node" parent="."]
+script = ExtResource("2_8jrqg")
+
+[node name="Dungeon" type="Sprite2D" parent="."]
+position = Vector2(45, 80)
+texture = ExtResource("1_fj68l")
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(44, 32)
+
+[node name="Slime" parent="Marker2D" instance=ExtResource("4_pmpd3")]
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("6_gbb3k")
+
+[node name="CenterContainer" type="CenterContainer" parent="UI"]
+layout_mode = 0
+offset_right = 90.0
+offset_bottom = 52.0
+
+[node name="NextRoomButton" type="Button" parent="UI/CenterContainer"]
+visible = false
+custom_minimum_size = Vector2(70, 13)
+layout_mode = 2
+text = "ENTER NEXT ROOM"
+
+[node name="StatsPanel" type="Panel" parent="UI"]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 52.0
+offset_right = 87.0
+offset_bottom = 70.0
+script = ExtResource("6_7j87k")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/StatsPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HP" type="Label" parent="UI/StatsPanel/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "HP
+25"
+horizontal_alignment = 1
+
+[node name="AP" type="Label" parent="UI/StatsPanel/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "AP
+3"
+horizontal_alignment = 1
+
+[node name="MP" type="Label" parent="UI/StatsPanel/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "MP
+10
+"
+horizontal_alignment = 1
+
+[node name="TextboxPanel" type="Panel" parent="UI"]
+layout_mode = 0
+offset_left = -3.0
+offset_top = 137.0
+offset_right = 93.0
+offset_bottom = 163.0
+
+[node name="BattleActionButtons" type="GridContainer" parent="UI"]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 73.0
+offset_right = 81.0
+offset_bottom = 137.0
+theme = ExtResource("6_gbb3k")
+theme_override_constants/h_separation = 8
+theme_override_constants/v_separation = 3
+columns = 2
+
+[node name="SwordActionButton" parent="UI/BattleActionButtons" instance=ExtResource("7_akt0q")]
+layout_mode = 2
+
+[node name="HealActionButton" parent="UI/BattleActionButtons" instance=ExtResource("8_l05ml")]
+layout_mode = 2
+
+[node name="MobileRpgMockup" type="Sprite2D" parent="UI"]
+visible = false
+modulate = Color(1, 1, 1, 0.396078)
+position = Vector2(45, 80)
+texture = ExtResource("3_8ixhm")
+
+[node name="Fade" type="ColorRect" parent="."]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_as8as")
+}
+
+[connection signal="ap_changed" from="PlayerStats" to="UI/StatsPanel" method="_on_player_stats_ap_changed"]
+[connection signal="hp_changed" from="PlayerStats" to="UI/StatsPanel" method="_on_player_stats_hp_changed"]
+[connection signal="mp_changed" from="PlayerStats" to="UI/StatsPanel" method="_on_player_stats_mp_changed"]
+[connection signal="pressed" from="UI/CenterContainer/NextRoomButton" to="." method="_on_next_room_button_pressed"]
