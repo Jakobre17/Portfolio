@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=5 format=3 uid="uid://6j1570k8617m"]
+
+[ext_resource type="Script" path="res://Items/item_effects/item_effect.gd" id="1_qhoqr"]
+[ext_resource type="Script" path="res://Items/scripts/item_data.gd" id="1_sqlwe"]
+[ext_resource type="Texture2D" uid="uid://c23x2grknfnwe" path="res://Items/sprites/items.png" id="2_3gr8n"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ivfpb"]
+atlas = ExtResource("2_3gr8n")
+region = Rect2(64, 0, 32, 32)
+
+[resource]
+script = ExtResource("1_sqlwe")
+name = ""
+description = "That's just a stupid boulder! 
+It's not just a boulder.. it's a rock!!"
+texture = SubResource("AtlasTexture_ivfpb")
+effects = Array[ExtResource("1_qhoqr")]([])
